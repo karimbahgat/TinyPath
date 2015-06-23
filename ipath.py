@@ -52,6 +52,14 @@ import sys,os,time
 # Classes
 
 class Size:
+    """
+    The file size object, as returned by File.size.
+
+    Attributes:
+
+    - **bytes**: The actual size in bytes, to be used for calculations.
+    - **string**: The size as a more sensible human-readable string depending on size. 
+    """
     def __init__(self, bytes):
         self.bytes = bytes
         # parse
