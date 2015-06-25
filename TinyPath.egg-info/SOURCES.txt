@@ -1,0 +1,8 @@
+README.rst
+setup.cfg
+setup.py
+tinypath.py
+TinyPath.egg-info/PKG-INFO
+TinyPath.egg-info/SOURCES.txt
+TinyPath.egg-info/dependency_links.txt
+TinyPath.egg-info/top_level.txt

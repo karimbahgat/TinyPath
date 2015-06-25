@@ -1,10 +1,17 @@
-iPath
-=====
+TinyPath
+========
 
-iPath provides object-oriented access to files and folders with plenty
-of convenience methods, and handles a lot of the intricacies of os.path
-behind the scene so you do not have to. Designed for everyday usage,
-inspecting, and organizing.
+TinyPath is a tiny file path module that provides only the most crucial
+and commonly needed functionality, including turning files and folders
+into classes. Designed as a companion module for projects that require
+handling arbitrary paths from users without breaking, and easy
+navigation of local file systems.
+
+By staying tiny in both size and functionality, the API is easy to learn
+so you can start using it right away. Essentially, it provides
+object-oriented access to files and folders with several convenient
+attributes such as checking file or folder size, handling a lot of the
+intricacies of os.path behind the scene so you do not have to.
 
 Platforms
 ---------
@@ -19,17 +26,17 @@ Pure Python, no dependencies.
 Installing it
 -------------
 
-iPath is installed with pip from the commandline:
+TinyPath is installed with pip from the commandline:
 
 ::
 
-    pip install ipath
+    pip install tinypath
 
 More Information:
 -----------------
 
--  `Home Page <http://github.com/karimbahgat/iPath>`__
--  `API Documentation <http://pythonhosted.org/iPath>`__
+-  `Home Page <http://github.com/karimbahgat/TinyPath>`__
+-  `API Documentation <http://pythonhosted.org/TinyPath>`__
 
 License:
 --------
@@ -41,3 +48,11 @@ Credits:
 --------
 
 Karim Bahgat (2015)
+
+Changes
+-------
+
+0.1.0 (2015-06-26)
+~~~~~~~~~~~~~~~~~~
+
+-  First pypi release

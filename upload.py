@@ -15,6 +15,7 @@ pypi.define_upload(packpath,
                                 "Intended Audience :: Developers",
                                 "Intended Audience :: Science/Research",
                                 'Intended Audience :: End Users/Desktop'],
+                   changes=["First pypi release"]
                    )
 
 pypi.generate_docs(packpath)

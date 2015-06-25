@@ -3,7 +3,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>ipath API documentation</title>
+    <title>tinypath API documentation</title>
     <meta name="description" content="# **API Documentation**" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
@@ -1038,10 +1038,10 @@ table {
     <li class="set"><h3><a href="#header-functions">Functions</a></h3>
       
   <ul>
-    <li class="mono"><a href="#ipath.current_folder">current_folder</a></li>
-    <li class="mono"><a href="#ipath.current_script">current_script</a></li>
-    <li class="mono"><a href="#ipath.from_path">from_path</a></li>
-    <li class="mono"><a href="#ipath.loop_folder">loop_folder</a></li>
+    <li class="mono"><a href="#tinypath.current_folder">current_folder</a></li>
+    <li class="mono"><a href="#tinypath.current_script">current_script</a></li>
+    <li class="mono"><a href="#tinypath.loop_folder">loop_folder</a></li>
+    <li class="mono"><a href="#tinypath.path2obj">path2obj</a></li>
   </ul>
 
     </li>
@@ -1049,34 +1049,34 @@ table {
     <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
         <li class="mono">
-        <span class="class_name"><a href="#ipath.File">File</a></span>
+        <span class="class_name"><a href="#tinypath.File">File</a></span>
         
           
   <ul>
-    <li class="mono"><a href="#ipath.File.__init__">__init__</a></li>
+    <li class="mono"><a href="#tinypath.File.__init__">__init__</a></li>
   </ul>
 
         </li>
         <li class="mono">
-        <span class="class_name"><a href="#ipath.Folder">Folder</a></span>
+        <span class="class_name"><a href="#tinypath.Folder">Folder</a></span>
         
           
   <ul>
-    <li class="mono"><a href="#ipath.Folder.__init__">__init__</a></li>
-    <li class="mono"><a href="#ipath.Folder.down">down</a></li>
-    <li class="mono"><a href="#ipath.Folder.loop">loop</a></li>
-    <li class="mono"><a href="#ipath.Folder.overview">overview</a></li>
-    <li class="mono"><a href="#ipath.Folder.overview_table">overview_table</a></li>
-    <li class="mono"><a href="#ipath.Folder.up">up</a></li>
+    <li class="mono"><a href="#tinypath.Folder.__init__">__init__</a></li>
+    <li class="mono"><a href="#tinypath.Folder.down">down</a></li>
+    <li class="mono"><a href="#tinypath.Folder.loop">loop</a></li>
+    <li class="mono"><a href="#tinypath.Folder.overview">overview</a></li>
+    <li class="mono"><a href="#tinypath.Folder.overview_table">overview_table</a></li>
+    <li class="mono"><a href="#tinypath.Folder.up">up</a></li>
   </ul>
 
         </li>
         <li class="mono">
-        <span class="class_name"><a href="#ipath.Size">Size</a></span>
+        <span class="class_name"><a href="#tinypath.Size">Size</a></span>
         
           
   <ul>
-    <li class="mono"><a href="#ipath.Size.__init__">__init__</a></li>
+    <li class="mono"><a href="#tinypath.Size.__init__">__init__</a></li>
   </ul>
 
         </li>
@@ -1094,7 +1094,7 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">ipath</span> module</h1>
+  <h1 class="title"><span class="name">tinypath</span> module</h1>
   <h1><strong>API Documentation</strong></h1>
   
 
@@ -1105,7 +1105,7 @@ table {
     <h2 class="section-title" id="header-functions">Functions</h2>
       
   <div class="item">
-    <div class="name def" id="ipath.current_folder">
+    <div class="name def" id="tinypath.current_folder">
     <p>def <span class="ident">current_folder</span>(</p><p>)</p>
     </div>
     
@@ -1120,7 +1120,7 @@ table {
   
       
   <div class="item">
-    <div class="name def" id="ipath.current_script">
+    <div class="name def" id="tinypath.current_script">
     <p>def <span class="ident">current_script</span>(</p><p>)</p>
     </div>
     
@@ -1135,22 +1135,7 @@ table {
   
       
   <div class="item">
-    <div class="name def" id="ipath.from_path">
-    <p>def <span class="ident">from_path</span>(</p><p>path)</p>
-    </div>
-    
-
-    
-  
-    <div class="desc"><p>Returns a File or Folder object from the given path</p></div>
-  <div class="source_cont">
-</div>
-
-  </div>
-  
-      
-  <div class="item">
-    <div class="name def" id="ipath.loop_folder">
+    <div class="name def" id="tinypath.loop_folder">
     <p>def <span class="ident">loop_folder</span>(</p><p>folder, filetypes=[], maxdepth=None)</p>
     </div>
     
@@ -1160,10 +1145,26 @@ table {
     <div class="desc"><p>A generator that iterates through all files in a folder tree, either in a for loop or by using next() on it.</p>
 <p>Arguments:</p>
 <ul>
-<li><strong>filetype</strong>: can be set to only grab files that have one of the specified file-extensions.</li>
-<li><strong>filetypes</strong> (optinoal): If filetype is a sequence then grabs all filetypes listed within it, otherwise grabs everything.</li>
+<li><strong>folder</strong>: The folder path to loop. Can be a folder instance, or any string path accepted by Folder. </li>
+<li><strong>filetypes</strong> (optional): If filetypes is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+    Each file type is specified as the file extension including the dot, eg ".py".</li>
 <li><strong>maxdepth</strong> (optional): Max depth to look before continuing.</li>
 </ul></div>
+  <div class="source_cont">
+</div>
+
+  </div>
+  
+      
+  <div class="item">
+    <div class="name def" id="tinypath.path2obj">
+    <p>def <span class="ident">path2obj</span>(</p><p>path)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Returns a File or Folder object from the given path.</p></div>
   <div class="source_cont">
 </div>
 
@@ -1173,13 +1174,13 @@ table {
     <h2 class="section-title" id="header-classes">Classes</h2>
       
       <div class="item">
-      <p id="ipath.File" class="name">class <span class="ident">File</span></p>
+      <p id="tinypath.File" class="name">class <span class="ident">File</span></p>
       
   
     <div class="desc"><p>A class that holds info about a file, which can be accessed via attributes.</p>
 <p>Attributes:</p>
 <ul>
-<li><strong>psth</strong>: Full proper path of the folder.</li>
+<li><strong>path</strong>: Full proper path of the folder.</li>
 <li><strong>name</strong>: Just the name of the folder.</li>
 <li><strong>type</strong>: Type extension of the file.</li>
 <li><strong>filename</strong>: Name with type extension. </li>
@@ -1196,12 +1197,12 @@ table {
       <div class="class">
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
-          <li><a href="#ipath.File">File</a></li>
+          <li><a href="#tinypath.File">File</a></li>
           </ul>
           <h3>Methods</h3>
             
   <div class="item">
-    <div class="name def" id="ipath.File.__init__">
+    <div class="name def" id="tinypath.File.__init__">
     <p>def <span class="ident">__init__</span>(</p><p>self, *filepath, **kwargs)</p>
     </div>
     
@@ -1221,13 +1222,13 @@ table {
       </div>
       
       <div class="item">
-      <p id="ipath.Folder" class="name">class <span class="ident">Folder</span></p>
+      <p id="tinypath.Folder" class="name">class <span class="ident">Folder</span></p>
       
   
     <div class="desc"><p>A class that holds info about a folder, which can be accessed via attributes</p>
 <p>Attributes:</p>
 <ul>
-<li><strong>psth</strong>: Full proper path of the folder.</li>
+<li><strong>path</strong>: Full proper path of the folder.</li>
 <li><strong>name</strong>: Just the name of the folder. </li>
 <li><strong>exists</strong>: True or False if exists.</li>
 <li><strong>read_ok</strong>: Read permission or not.</li>
@@ -1249,12 +1250,12 @@ table {
       <div class="class">
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
-          <li><a href="#ipath.Folder">Folder</a></li>
+          <li><a href="#tinypath.Folder">Folder</a></li>
           </ul>
           <h3>Methods</h3>
             
   <div class="item">
-    <div class="name def" id="ipath.Folder.__init__">
+    <div class="name def" id="tinypath.Folder.__init__">
     <p>def <span class="ident">__init__</span>(</p><p>self, *folderpath, **kwargs)</p>
     </div>
     
@@ -1272,14 +1273,14 @@ table {
   
             
   <div class="item">
-    <div class="name def" id="ipath.Folder.down">
+    <div class="name def" id="tinypath.Folder.down">
     <p>def <span class="ident">down</span>(</p><p>self, foldername)</p>
     </div>
     
 
     
   
-    <div class="desc"><p>Changes this object's path down into the given subfolder</p></div>
+    <div class="desc"><p>Changes this object's path down into the given subfolder name</p></div>
   <div class="source_cont">
 </div>
 
@@ -1287,14 +1288,20 @@ table {
   
             
   <div class="item">
-    <div class="name def" id="ipath.Folder.loop">
+    <div class="name def" id="tinypath.Folder.loop">
     <p>def <span class="ident">loop</span>(</p><p>self, filetypes=[], maxdepth=None)</p>
     </div>
     
 
     
   
-    <div class="desc"><p>Loops files only</p></div>
+    <div class="desc"><p>Loops files only</p>
+<p>Arguments:</p>
+<ul>
+<li><strong>filetypes</strong> (optional): If filetype is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+    Each file type is specified as the file extension including the dot, eg ".py".</li>
+<li><strong>maxdepth</strong> (optional): Max depth to look before continuing.</li>
+</ul></div>
   <div class="source_cont">
 </div>
 
@@ -1302,14 +1309,20 @@ table {
   
             
   <div class="item">
-    <div class="name def" id="ipath.Folder.overview">
+    <div class="name def" id="tinypath.Folder.overview">
     <p>def <span class="ident">overview</span>(</p><p>self, filetypes=[], maxdepth=None)</p>
     </div>
     
 
     
   
-    <div class="desc"><p>Return a string representation of the folder structure and file members, as a snapshot of the folder's content.</p></div>
+    <div class="desc"><p>Return a string representation of the folder structure and file members, as a snapshot of the folder's content.</p>
+<p>Arguments:</p>
+<ul>
+<li><strong>filetypes</strong> (optional): If filetypes is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+    Each file type is specified as the file extension including the dot, eg ".py".</li>
+<li><strong>maxdepth</strong> (optional): Max depth to look before continuing.</li>
+</ul></div>
   <div class="source_cont">
 </div>
 
@@ -1317,7 +1330,7 @@ table {
   
             
   <div class="item">
-    <div class="name def" id="ipath.Folder.overview_table">
+    <div class="name def" id="tinypath.Folder.overview_table">
     <p>def <span class="ident">overview_table</span>(</p><p>self, filetypes=[], maxdepth=None)</p>
     </div>
     
@@ -1325,6 +1338,12 @@ table {
     
   
     <div class="desc"><p>Return a tab-delimited table string of the folder structure and file members, as a snapshot of the folder's content.</p>
+<p>Arguments:</p>
+<ul>
+<li><strong>filetypes</strong> (optional): If filetypes is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+    Each file type is specified as the file extension including the dot, eg ".py".</li>
+<li><strong>maxdepth</strong> (optional): Max depth to look before continuing. </li>
+</ul>
 <p>Warning: Not fully tested...</p></div>
   <div class="source_cont">
 </div>
@@ -1333,7 +1352,7 @@ table {
   
             
   <div class="item">
-    <div class="name def" id="ipath.Folder.up">
+    <div class="name def" id="tinypath.Folder.up">
     <p>def <span class="ident">up</span>(</p><p>self)</p>
     </div>
     
@@ -1350,7 +1369,7 @@ table {
       </div>
       
       <div class="item">
-      <p id="ipath.Size" class="name">class <span class="ident">Size</span></p>
+      <p id="tinypath.Size" class="name">class <span class="ident">Size</span></p>
       
   
     <div class="desc"><p>The file size object, as returned by File.size.</p>
@@ -1366,12 +1385,12 @@ table {
       <div class="class">
           <h3>Ancestors (in MRO)</h3>
           <ul class="class_list">
-          <li><a href="#ipath.Size">Size</a></li>
+          <li><a href="#tinypath.Size">Size</a></li>
           </ul>
           <h3>Methods</h3>
             
   <div class="item">
-    <div class="name def" id="ipath.Size.__init__">
+    <div class="name def" id="tinypath.Size.__init__">
     <p>def <span class="ident">__init__</span>(</p><p>self, bytes)</p>
     </div>
     
