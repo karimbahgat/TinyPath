@@ -1,14 +1,14 @@
 import pypi
  
-packpath = "ipath.py"
+packpath = "tinypath.py"
 pypi.define_upload(packpath,
                    author="Karim Bahgat",
                    author_email="karim.bahgat.norway@gmail.com",
                    license="MIT",
-                   name="iPath",
-                   description="Object-oriented file and folder access for day-to-day efficiency.",
-                   url="http://github.com/karimbahgat/iPath",
-                   keywords="files folders organizing",
+                   name="TinyPath",
+                   description="TinyPath is a tiny object-oriented file path module that provides only the most crucial and commonly needed functionality, making it easy to learn and efficient to use.",
+                   url="http://github.com/karimbahgat/TinyPath",
+                   keywords="paths files folders organizing",
                    classifiers=["License :: OSI Approved",
                                 "Programming Language :: Python",
                                 "Development Status :: 4 - Beta",

@@ -1,10 +1,16 @@
 """
-# iPath
+# TinyPath
 
-iPath provides object-oriented access to files and folders with plenty of
-convenience methods, and handles a lot of the intricacies of os.path behind
-the scene so you do not have to. Designed for everyday usage, inspecting, and
-organizing. 
+TinyPath is a tiny file path module that provides only the most crucial and
+commonly needed functionality, including turning files and folders into classes.
+Designed as a companion module for projects that require handling arbitrary paths
+from users without breaking, and easy navigation of local file systems. 
+
+By staying tiny in both size and functionality, the API is easy to learn so
+you can start using it right away. Essentially, it provides object-oriented access
+to files and folders with several convenient attributes such as checking file or
+folder size, handling a lot of the intricacies of os.path behind
+the scene so you do not have to. 
 
 
 ## Platforms
@@ -19,15 +25,15 @@ Pure Python, no dependencies.
 
 ## Installing it
 
-iPath is installed with pip from the commandline:
+TinyPath is installed with pip from the commandline:
 
-    pip install ipath
+    pip install tinypath
 
 
 ## More Information:
 
-- [Home Page](http://github.com/karimbahgat/iPath)
-- [API Documentation](http://pythonhosted.org/iPath)
+- [Home Page](http://github.com/karimbahgat/TinyPath)
+- [API Documentation](http://pythonhosted.org/TinyPath)
 
 
 ## License:
@@ -91,7 +97,7 @@ class Folder:
 
     Attributes:
 
-    - **psth**: Full proper path of the folder.
+    - **path**: Full proper path of the folder.
     - **name**: Just the name of the folder. 
     - **exists**: True or False if exists.
     - **read_ok**: Read permission or not.
@@ -227,7 +233,7 @@ class Folder:
         self.__init__(newpath)
         
     def down(self, foldername):
-        """Changes this object's path down into the given subfolder"""
+        """Changes this object's path down into the given subfolder name"""
         for folder in self.folders:
             if foldername == folder.name:
                 newpath = folder.path
@@ -236,12 +242,26 @@ class Folder:
         else: raise Exception("No such folder found")
         
     def loop(self, filetypes=[], maxdepth=None):
-        """Loops files only"""
+        """
+        Loops files only
+
+        Arguments:
+
+        - **filetypes** (optional): If filetype is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+            Each file type is specified as the file extension including the dot, eg ".py".
+        - **maxdepth** (optional): Max depth to look before continuing. 
+        """
         return loop_folder(self, filetypes, maxdepth)
     
     def overview(self, filetypes=[], maxdepth=None):
         """
         Return a string representation of the folder structure and file members, as a snapshot of the folder's content.
+
+        Arguments:
+
+        - **filetypes** (optional): If filetypes is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+            Each file type is specified as the file extension including the dot, eg ".py".
+        - **maxdepth** (optional): Max depth to look before continuing. 
         """
 
         if not filetypes: filetypes = []
@@ -274,6 +294,12 @@ class Folder:
     def overview_table(self, filetypes=[], maxdepth=None):
         """
         Return a tab-delimited table string of the folder structure and file members, as a snapshot of the folder's content.
+
+        Arguments:
+
+        - **filetypes** (optional): If filetypes is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+            Each file type is specified as the file extension including the dot, eg ".py".
+        - **maxdepth** (optional): Max depth to look before continuing. 
 
         Warning: Not fully tested...
         """
@@ -314,7 +340,7 @@ class File:
 
     Attributes:
 
-    - **psth**: Full proper path of the folder.
+    - **path**: Full proper path of the folder.
     - **name**: Just the name of the folder.
     - **type**: Type extension of the file.
     - **filename**: Name with type extension. 
@@ -412,9 +438,9 @@ def current_folder():
     curfile = current_script()
     return curfile.folder
 
-def from_path(path):
+def path2obj(path):
     """
-    Returns a File or Folder object from the given path
+    Returns a File or Folder object from the given path.
     """
     if os.path.isfile(path) or os.path.islink(path):
         return File(path)
@@ -427,8 +453,9 @@ def loop_folder(folder, filetypes=[], maxdepth=None):
 
     Arguments:
 
-    - **filetype**: can be set to only grab files that have one of the specified file-extensions.
-    - **filetypes** (optinoal): If filetype is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+    - **folder**: The folder path to loop. Can be a folder instance, or any string path accepted by Folder. 
+    - **filetypes** (optional): If filetypes is a sequence then grabs all filetypes listed within it, otherwise grabs everything.
+        Each file type is specified as the file extension including the dot, eg ".py".
     - **maxdepth** (optional): Max depth to look before continuing. 
     """
     if not filetypes: filetypes = []

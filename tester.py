@@ -1,5 +1,5 @@
 
-from ipath import *
+from tinypath import *
 
 top = Folder(r"C:/Users\\kimo/Desktop")
 print top.path, top.size
