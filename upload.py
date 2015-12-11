@@ -1,13 +1,13 @@
-import pypi
+import pipy
  
 packpath = "tinypath.py"
-pypi.define_upload(packpath,
+pipy.define_upload(packpath,
                    author="Karim Bahgat",
                    author_email="karim.bahgat.norway@gmail.com",
                    license="MIT",
-                   name="TinyPath",
-                   description="TinyPath is a tiny object-oriented file path module that provides only the most crucial and commonly needed functionality, making it easy to learn and efficient to use.",
-                   url="http://github.com/karimbahgat/TinyPath",
+                   name="tinypath",
+                   description="Tinypath is a tiny object-oriented file path module that provides only the most crucial and commonly needed functionality, making it easy to learn and efficient to use.",
+                   url="http://github.com/karimbahgat/tinypath",
                    keywords="paths files folders organizing",
                    classifiers=["License :: OSI Approved",
                                 "Programming Language :: Python",
@@ -15,10 +15,10 @@ pypi.define_upload(packpath,
                                 "Intended Audience :: Developers",
                                 "Intended Audience :: Science/Research",
                                 'Intended Audience :: End Users/Desktop'],
-                   changes=["First pypi release"]
+                   changes=["Lowercased package name"]
                    )
 
-pypi.generate_docs(packpath)
-#pypi.upload_test(packpath)
-pypi.upload(packpath)
+pipy.generate_docs(packpath)
+#pipy.upload_test(packpath)
+pipy.upload(packpath)
 

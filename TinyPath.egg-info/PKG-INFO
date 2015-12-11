@@ -1,15 +1,15 @@
 Metadata-Version: 1.1
-Name: TinyPath
-Version: 0.1.0
-Summary: TinyPath is a tiny object-oriented file path module that provides only the most crucial and commonly needed functionality, making it easy to learn and efficient to use.
-Home-page: http://github.com/karimbahgat/TinyPath
+Name: tinypath
+Version: 0.1.1
+Summary: Tinypath is a tiny object-oriented file path module that provides only the most crucial and commonly needed functionality, making it easy to learn and efficient to use.
+Home-page: http://github.com/karimbahgat/tinypath
 Author: Karim Bahgat
 Author-email: karim.bahgat.norway@gmail.com
 License: MIT
-Description: TinyPath
+Description: tinypath
         ========
         
-        TinyPath is a tiny file path module that provides only the most crucial
+        Tinypath is a tiny file path module that provides only the most crucial
         and commonly needed functionality, including turning files and folders
         into classes. Designed as a companion module for projects that require
         handling arbitrary paths from users without breaking, and easy
@@ -34,7 +34,7 @@ Description: TinyPath
         Installing it
         -------------
         
-        TinyPath is installed with pip from the commandline:
+        Tinypath is installed with pip from the commandline:
         
         ::
         
@@ -43,8 +43,8 @@ Description: TinyPath
         More Information:
         -----------------
         
-        -  `Home Page <http://github.com/karimbahgat/TinyPath>`__
-        -  `API Documentation <http://pythonhosted.org/TinyPath>`__
+        -  `Home Page <http://github.com/karimbahgat/tinypath>`__
+        -  `API Documentation <http://pythonhosted.org/tinypath>`__
         
         License:
         --------
@@ -59,6 +59,11 @@ Description: TinyPath
         
         Changes
         -------
+        
+        0.1.1 (2015-12-11)
+        ~~~~~~~~~~~~~~~~~~
+        
+        -  Lowercased package name
         
         0.1.0 (2015-06-26)
         ~~~~~~~~~~~~~~~~~~

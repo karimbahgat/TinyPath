@@ -1,7 +1,7 @@
 """
-# TinyPath
+# tinypath
 
-TinyPath is a tiny file path module that provides only the most crucial and
+Tinypath is a tiny file path module that provides only the most crucial and
 commonly needed functionality, including turning files and folders into classes.
 Designed as a companion module for projects that require handling arbitrary paths
 from users without breaking, and easy navigation of local file systems. 
@@ -25,15 +25,15 @@ Pure Python, no dependencies.
 
 ## Installing it
 
-TinyPath is installed with pip from the commandline:
+Tinypath is installed with pip from the commandline:
 
     pip install tinypath
 
 
 ## More Information:
 
-- [Home Page](http://github.com/karimbahgat/TinyPath)
-- [API Documentation](http://pythonhosted.org/TinyPath)
+- [Home Page](http://github.com/karimbahgat/tinypath)
+- [API Documentation](http://pythonhosted.org/tinypath)
 
 
 ## License:
@@ -48,7 +48,7 @@ Karim Bahgat (2015)
 
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 # Imports
